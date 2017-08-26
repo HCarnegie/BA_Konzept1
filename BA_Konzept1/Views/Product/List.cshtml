@@ -1,0 +1,53 @@
+﻿@model BA_Konzept1.Models.ProductsListViewModel
+@{
+	ViewBag.Title = "Products";
+}
+<style>
+	#cartTable td {
+		vertical-align: middle;
+	}
+</style>
+
+<h2>All Products</h2>
+<table id="cartTable" class="table">
+	<thead>
+		<tr>
+			<th>Name</th>
+			<th>Price</th>
+			<th class="text-right">Price</th>
+			<th class="text-right">Subtotal</th>
+		</tr>
+	</thead>
+	<tbody>
+		@foreach (var p in Model.Products)
+		{
+			//@Html.Partial("ProductSummary", p)
+			<tr>
+				<td class="text-left">@p.Name</td>
+				<td class="text-right">@p.Price.ToString("c")</td>
+				<td class="text-right">@p.Category</td>
+				<td>
+					@*@using (Html.BeginForm("RemoveFromCart", "Cart"))
+						{
+							@Html.Hidden("ProductId", p.ProductID)
+							@*@*@*@Html.HiddenFor(x => x.ReturnUrl)
+							<input class="btn btn-sm btn-warning"
+								   type="submit" value="Remove" />*@*@*@
+					}*@
+				</td>
+			</tr>
+		}
+	</tbody>
+	<tfoot>
+		<tr>
+			<td colspan="3" class="text-right">Total:</td>
+			<td class="text-right">
+				
+			</td>
+		</tr>
+	</tfoot>
+</table>
+
+<div class="btn-group pull-right">
+	@Html.PageLinks(Model.PagingInfo, x => Url.Action("List", new { page = x, category = Model.CurrentCategory }))
+</div>
