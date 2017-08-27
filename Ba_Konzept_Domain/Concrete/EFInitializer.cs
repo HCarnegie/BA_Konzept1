@@ -4,7 +4,7 @@ using System.Collections.Generic;
 
 namespace BA_Konzept.Domain.Concrete
 {
-	public class EFInitializer : DropCreateDatabaseIfModelChanges<EFDbContext>
+	public class EFInitializer : DropCreateDatabaseAlways<EFDbContext>
 	{
 		// DropCreateDatabaseAlways
 		// DropCreateDatabaseIfModelChanges
@@ -22,8 +22,8 @@ namespace BA_Konzept.Domain.Concrete
 			defaultproduct.Add(new Product() { Name = "Kayak", Description = "A boat for one person", Price = 275.00M, Category = "Watersports" });
 			defaultproduct.Add(new Product() { Name = "Lifejacket", Description = "Protective and fashionable", Price = 48.95M, Category = "Watersports" });
 			defaultproduct.Add(new Product() { Name = "Soccer Ball", Description = "FIFA-approved price", Price = 19.50M, Category = "Soccer" });
-			defaultproduct.Add(new Product() { Name = "Lifejacket-1", Description = "Protective and fashionable", Price = 48.95M, Category = "Watersports" });
-			defaultproduct.Add(new Product() { Name = "Soccer Ball-1", Description = "FIFA-approved price", Price = 19.50M, Category = "Soccer" });
+			defaultproduct.Add(new Product() { Name = "Lifejacket-100", Description = "Protective and fashionable", Price = 48.95M, Category = "Watersports" });
+			defaultproduct.Add(new Product() { Name = "Soccer Ball-110", Description = "FIFA-approved price", Price = 19.50M, Category = "Soccer" });
 			defaultproduct.Add(new Product() { Name = "Lifejacket", Description = "Protective and fashionable", Price = 48.95M, Category = "Watersports" });
 			defaultproduct.Add(new Product() { Name = "Soccer Ball-2", Description = "FIFA-approved price", Price = 19.50M, Category = "Soccer" });
 			defaultproduct.Add(new Product() { Name = "Lifejacket-2", Description = "Protective and fashionable", Price = 48.95M, Category = "Watersports" });

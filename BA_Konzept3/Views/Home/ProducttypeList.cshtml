@@ -1,0 +1,37 @@
+﻿<h2>All Producttypes</h2>
+<table id="cartTable"  class="table">
+	<thead>
+	<tr><th>Name</th><th>Description</th></tr>
+	</thead>
+	<tbody data-bind="foreach: model.producttypes()">
+	<tr>
+		<td data-bind="text: $data.Name"></td>
+		<td data-bind="text: $data.Description"></td>
+		<td>
+			<button class="btn btn-xs btn-danger"
+			        data-bind="click: removeProducttype">Remove</button>
+		</td>
+		<td>
+			<button class="btn btn-xs btn-warning"
+			        data-bind="click: editProducttype">
+				Edit
+			</button>
+		</td>
+	</tr>
+	</tbody>
+	<tfoot>
+	<tr>
+		<td>
+			<button class="btn btn-xs btn-primary"
+			        data-bind="click: createProducttype">
+				Create
+			</button>
+		</td>
+		<td colspan="3" class="text-right">Total: </td>
+	</tr>
+	</tfoot>
+</table>
+<div class="btn-group pull-right">
+	
+</div>
+

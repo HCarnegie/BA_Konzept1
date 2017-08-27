@@ -1,4 +1,5 @@
 ﻿using System.Collections.Generic;
+using System.Threading.Tasks;
 using BA_Konzept.Domain.Entities;
 
 namespace BA_Konzept.Domain.Abstract
@@ -7,8 +8,10 @@ namespace BA_Konzept.Domain.Abstract
 	{
 		IEnumerable<Producttype> Producttypes { get; }
 
-		void SaveProducttype(Producttype producttype);
+		Task<int> SaveProducttypeAsync(Producttype producttype);
 
-		Producttype DeleteProducttype(int producttypeID);
+		Task<Producttype>  DeleteProducttypeAsync(int producttypeID);
+
+
 	}
 }

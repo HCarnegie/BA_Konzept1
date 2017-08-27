@@ -1,4 +1,5 @@
 ﻿using System.Collections.Generic;
+using System.Threading.Tasks;
 using BA_Konzept.Domain.Entities;
 using BA_Konzept.Domain.Abstract;
 
@@ -8,12 +9,9 @@ namespace BA_Konzept.Domain.Concrete
 	{
 		private EFDbContext context = new EFDbContext();
 
-		public IEnumerable<Producttype> Producttypes
-		{
-			get { return context.Producttypes; }
-		}
+		public IEnumerable<Producttype> Producttypes => context.Producttypes;
 
-		public void SaveProducttype(Producttype producttype)
+		public async Task<int> SaveProducttypeAsync(Producttype producttype)
 		{
 
 			if (producttype.ProducttypeID == 0)
@@ -29,16 +27,16 @@ namespace BA_Konzept.Domain.Concrete
 					dbEntry.Description = producttype.Description;
 				}
 			}
-			context.SaveChanges();
+			return await context.SaveChangesAsync();
 		}
 
-		public Producttype DeleteProducttype(int producttypeID)
+		public async Task<Producttype> DeleteProducttypeAsync(int producttypeID)
 		{
 			Producttype dbEntry = context.Producttypes.Find(producttypeID);
 			if (dbEntry != null)
 			{
 				context.Producttypes.Remove(dbEntry);
-				context.SaveChanges();
+				await context.SaveChangesAsync();
 			}
 			return dbEntry;
 		}

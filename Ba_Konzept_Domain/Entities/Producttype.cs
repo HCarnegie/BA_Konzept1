@@ -12,15 +12,15 @@ namespace BA_Konzept.Domain.Entities
 		public string Name { get; set; }
 		public string Description { get; set; }
 
-		// ### Relations ### 
-		public virtual ICollection<Product> Products { get; set; }
-		public virtual ICollection<Typedata> Typedatas { get; set; }
+		////### Relations ### 
+		//public virtual ICollection<Product> Products { get; set; }
+		//public virtual ICollection<Typedata> Typedatas { get; set; }
 
-		// ### Constructor ###
-		public Producttype()
-		{
-			Products = new HashSet<Product>();
-			Typedatas = new HashSet<Typedata>();
-		}
+		//// ### Constructor ###
+		//public Producttype()
+		//{
+		//	Products = new HashSet<Product>();
+		//	Typedatas = new HashSet<Typedata>();
+		//}
 	}
 }

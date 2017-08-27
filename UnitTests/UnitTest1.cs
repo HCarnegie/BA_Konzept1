@@ -6,9 +6,9 @@ using Microsoft.VisualStudio.TestTools.UnitTesting;
 using Moq;
 using BA_Konzept.Domain.Abstract;
 using BA_Konzept.Domain.Entities;
-using BA_Konzept1.Controllers;
-using BA_Konzept1.Models;
-using BA_Konzept1.HtmlHelpers;
+using BA_Konzept3.Controllers;
+using BA_Konzept3.Models;
+using BA_Konzept3.HtmlHelpers;
 
 namespace UnitTests
 {

@@ -1,0 +1,46 @@
+﻿
+@section Scripts {
+	<script src="~/Scripts/appUserModel.js"></script>
+	<script src="~/Scripts/appUserController.js"></script>
+}
+<div class="navbar navbar-inverse" role="navigation">
+	<a class="navbar-brand" href="#">ZELTWANGER Automation GmbH - Konzept 3</a>
+</div>
+<div id="categories" class="col-xs-3">
+	<button class="btn btn-block btn-default btn-lg"
+	        data-bind="click: setView.bind($data, 'Home')">
+		Home
+	</button>
+	<button class="btn btn-block btn-default btn-lg"
+	        data-bind="click: setView.bind($data, 'ProducttypeList')">
+		Producttypes
+	</button>
+	<button class="btn btn-block btn-default btn-lg"
+	        data-bind="click: setView.bind($data, null)">
+		Product
+	</button>
+</div>
+
+@*<div class="alert alert-danger col-xs-8"
+     data-bind="visible: model.gotError(), text: model.error()">
+</div>*@
+
+
+<div class="col-xs-8">
+	<div class="row panel" 
+		 data-bind="visible: userModel.currentView() == 'Home'">
+		@Html.Partial("Home")
+	</div>
+	<div class="row panel"
+	     data-bind="visible: userModel.currentView() == 'ProducttypeList'">
+		@Html.Partial("ProducttypeList")
+	</div>
+	<div class="row panel"
+	     data-bind="visible: userModel.currentView() == 'ProducttypeEdit'">
+		@Html.Partial("ProducttypeEdit")
+	</div>
+	@*<div class="row panel"
+	     data-bind="visible: customerModel.currentView() == 'thankyou'">
+		@Html.Partial("ThankYou")
+	</div>*@
+</div>
