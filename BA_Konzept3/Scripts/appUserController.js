@@ -16,8 +16,5 @@ var editProducttype = function (producttype) {
 var createProducttype = function() {
 	editProducttype(userModel.newProducttype);
 }
-$(document).ready(function() {
-	getProducttypes();
-	ko.applyBindings();
-});
+
 

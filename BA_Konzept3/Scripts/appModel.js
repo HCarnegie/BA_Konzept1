@@ -10,12 +10,11 @@ var model = {
 };
 
 // jQuery ready function to set up Knockout data bindings
-$(document).ready(function() {
-	//ko.applyBindings();
-
+$(document).ready(function () {
+	ko.applyBindings();
 	setDefaultCallbacks(
 		//Default Ajax-Success-Function
-		function(data) {
+		function (data) {
 			if (data) {
 				console.log("---Begin Success---");
 				console.log(JSON.stringify(data));
@@ -27,11 +26,9 @@ $(document).ready(function() {
 		},
 
 		// Default Ajax-Errorfunction  
-		function(statusCode, statusText) {
+		function (statusCode, statusText) {
 			console.log("Error: " + statusCode + " (" + statusText + ")");
 			model.error(statusCode + " (" + statusText + ")");
 			model.gotError(true);
 		});
-
-	//getProducttypes();
 });
