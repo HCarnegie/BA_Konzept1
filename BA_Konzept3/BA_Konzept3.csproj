@@ -236,7 +236,6 @@
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />
-    <Folder Include="Views\Prep\" />
   </ItemGroup>
   <ItemGroup>
     <ProjectReference Include="..\Ba_Konzept_Domain\BA_Konzept.Domain.csproj">

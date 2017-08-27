@@ -3,44 +3,67 @@
 	<script src="~/Scripts/appUserModel.js"></script>
 	<script src="~/Scripts/appUserController.js"></script>
 }
+
 <div class="navbar navbar-inverse" role="navigation">
 	<a class="navbar-brand" href="#">ZELTWANGER Automation GmbH - Konzept 3</a>
 </div>
-<div id="categories" class="col-xs-3">
-	<button class="btn btn-block btn-default btn-lg"
-	        data-bind="click: setView.bind($data, 'Home')">
-		Home
-	</button>
-	<button class="btn btn-block btn-default btn-lg"
-	        data-bind="click: setView.bind($data, 'ProducttypeList')">
-		Producttypes
-	</button>
-	<button class="btn btn-block btn-default btn-lg"
-	        data-bind="click: setView.bind($data, null)">
-		Product
-	</button>
-</div>
 
 @*<div class="alert alert-danger col-xs-8"
-     data-bind="visible: model.gotError(), text: model.error()">
-</div>*@
+		 data-bind="visible: model.gotError(), text: model.error()">
+	</div>*@
 
+<div>
+	<div id="categories" class="col-xs-3">
+		<button class="btn btn-block btn-default btn-lg"
+				data-bind="click: setView.bind($data, 'Home')">
+			Home
+		</button>
+		<button class="btn btn-block btn-default btn-lg"
+		        data-bind="click: setView.bind($data, 'ProducttypeList')">
+			Producttypes
+		</button>
 
-<div class="col-xs-8">
-	<div class="row panel" 
-		 data-bind="visible: userModel.currentView() == 'Home'">
+	</div>
+	<div class="col-xs-8" data-bind="visible: userModel.currentView() == 'Home'">
 		@Html.Partial("Home")
 	</div>
-	<div class="row panel"
-	     data-bind="visible: userModel.currentView() == 'ProducttypeList'">
-		@Html.Partial("ProducttypeList")
+	<div class="col-xs-8" data-bind="visible: userModel.currentView() == 'ProducttypeList'">
+		@*@Html.Partial("ProducttypeList")*@
+		<h2>All Producttypes</h2>
+		<table id="cartTable"  class="table">
+			<thead>
+			<tr><th>Name</th><th>Description</th></tr>
+			</thead>
+			<tbody data-bind="foreach: model.producttypes()">
+			<tr>
+				<td data-bind="text: $data.Name"></td>
+				<td data-bind="text: $data.Description"></td>
+				<td>
+					<button class="btn btn-xs btn-danger"
+					        data-bind="click: removeProducttype">Remove</button>
+				</td>
+				<td>
+					<button class="btn btn-xs btn-warning"
+					        data-bind="click: editProducttype">
+						Edit
+					</button>
+				</td>
+			</tr>
+			</tbody>
+			<tfoot>
+			<tr>
+				<td>
+					<button class="btn btn-xs btn-primary"
+					        data-bind="click: createProducttype">
+						Create
+					</button>
+				</td>
+				<td colspan="3" class="text-right">Total: </td>
+			</tr>
+			</tfoot>
+		</table>
 	</div>
-	<div class="row panel"
-	     data-bind="visible: userModel.currentView() == 'ProducttypeEdit'">
+	<div class="col-xs-8" data-bind="visible: userModel.currentView() == 'ProducttypeEdit'">
 		@Html.Partial("ProducttypeEdit")
 	</div>
-	@*<div class="row panel"
-	     data-bind="visible: customerModel.currentView() == 'thankyou'">
-		@Html.Partial("ThankYou")
-	</div>*@
 </div>

@@ -7,17 +7,21 @@
 	    <script src="~/Scripts/knockout-3.4.2.js"></script>
 		<link href="~/Content/bootstrap.css" rel="stylesheet" />
 	    <link href="~/Content/bootstrap-theme.css" rel="stylesheet" />
+
 	    <script src="~/Scripts/appAjax.js"></script>
 	    <script src="~/Scripts/appModel.js"></script>
 	    <script src="~/Scripts/appCommonController.js"></script>
 	    <script src="~/Scripts/appProducttypesController.js"></script>
-	    <title>ZELTWANGER Automation GmbH Konzept</title>    
+	    <script src="~/Scripts/appUserModel.js"></script>
+	    <script src="~/Scripts/appUserController.js"></script>
+	    
+		<title>ZELTWANGER Automation GmbH Konzept</title>    
 	    <style>
     		body { padding-top: 10px; }
     	</style>
 			@RenderSection("Scripts", false)
     </head>
-    <body>
+    <body class="container">
 		@RenderBody()
 	</body>
 </html>
